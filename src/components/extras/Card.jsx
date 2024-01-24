@@ -1,5 +1,5 @@
 import profilePic from './assets/thui.jpg'
-import ListItem from './ListItem'
+import ListItem from '../todoList/ListItem'
 
 function Card() {
     return(
@@ -10,5 +10,7 @@ function Card() {
         </div>
     )
 }
+
+//hii
 
 export default Card

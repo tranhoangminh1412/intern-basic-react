@@ -57,6 +57,16 @@
   margin: 0;
 } */
 
+#root {
+  height: 936px;
+  display: inline-block;
+}
+
+.app {
+  display: flex;
+  height: 100%;
+}
+
 .completedItem {
   background-color: green;
   line-height: 1.5em;
@@ -69,4 +79,27 @@
 
 ol {
   border: 1px solid black;
+}
+
+.sidebar {
+  padding-top: 20px;
+  background-color: darkgrey;
+  width: 10em;
+  height: 100%;
+}
+
+.sidebarItem {
+  padding: 10px;
+  cursor: pointer;
+}
+
+.sidebarItem-active {
+  padding: 10px;
+  /* padding-bottom: 10px; */
+  color: #1559B4;
+  background-color: #E6F1FF;
+}
+
+h3 {
+  text-align: center;
 }

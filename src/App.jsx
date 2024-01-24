@@ -2,21 +2,30 @@
 // import Button from "./Button.jsx";
 // import Student from "./Student.jsx";
 // import UserGreeting from "./UserGreeting.jsx";
-import List from "./List.jsx";
-import ListItem from "./ListItem.jsx";
+import List from "./components/todoList/List.jsx";
+import ListItem from "./components/todoList/ListItem.jsx";
+import Sidebar from "./components/Sidebar.jsx";
+import Content from "./components/Content.jsx";
+import { useState } from "react";
 
 function App() {
 
-  const fruits = [{id: 1, name: "apple", calories: 95}, 
-                {id: 2, name: "orange", calories: 45}, 
-                {id: 3, name: "banana", calories: 135}, 
-                {id: 4, name: "coconut", calories: 105}, 
-                {id: 5, name: "pineapple", calories: 35}];
+  const [activeId,setActiveId] = useState(1)
 
-  
+  const sidebarItems = [
+    { id: 1, name: "Home"},
+    { id: 2, name: "Todo Apps"},
+    { id: 3, name: "Bai 2"},
+    { id: 4, name: "Bai 3"},
+  ]
 
   return (
-    <List items={ListItem} category="Todos"></List>
+    // <List items={ListItem} category="Todos"></List>
+    <div className="app">
+      <Sidebar className="sidebar" activeId={activeId} setActiveId={setActiveId} items={sidebarItems} category="Basic Exercise" />
+      <Content activeId = {activeId} category={sidebarItems[activeId-1].name}/>
+
+    </div>
   );
 }
 
