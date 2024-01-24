@@ -1,6 +1,7 @@
-import ListItem from "./todoList/ListItem"
-import List from "./todoList/List"
-import Home from "./Home"
+import ListItem from "../Sidebar/components/todoList/ListItem"
+import List from "../Sidebar/components/todoList/List"
+import Home from "../Sidebar/components/Home"
+import Columns from "./Columns/Columns"
 
 function Content(props) {
     let category = props.category
@@ -11,7 +12,7 @@ function Content(props) {
             <h3>{category}</h3>
             {props.activeId == 1 ? <Home></Home> : ''}
             {props.activeId == 2 ? <List items={ListItem}></List> : ''}
-            {props.activeId == 3 ? <Home></Home> : ''}
+            {props.activeId == 3 ? <Columns></Columns> : ''}
             {props.activeId == 4 ? <Home></Home> : ''}
         </div>
     )

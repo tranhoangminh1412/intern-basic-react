@@ -1,5 +1,5 @@
 import profilePic from './assets/thui.jpg'
-import ListItem from '../todoList/ListItem'
+import ListItem from '../Sidebar/components/todoList/ListItem'
 
 function Card() {
     return(
