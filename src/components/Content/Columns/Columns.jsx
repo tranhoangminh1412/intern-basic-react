@@ -1,17 +1,84 @@
 import Todos from "./Todos"
+import moment from "moment/moment"
+import { ReactDOM, useState } from "react"
 
-function Columns (props) {
+function Columns(props) {
+    // Todos.forEach(todo => {todo.date = todo.date.toUTCString})
+
     let newItems = []
-    Todos.forEach(todo => {todo.status == "New" ? newItems.push(todo) : ''})
+    Todos.forEach(todo => { todo.status == "New" ? newItems.push(todo) : '' })
     let finishedItems = []
-    Todos.forEach(todo => {todo.status == "Finished" ? finishedItems.push(todo) : ''})
+    Todos.forEach(todo => { todo.status == "Finished" ? finishedItems.push(todo) : '' })
     let abortedItems = []
-    Todos.forEach(todo => {todo.status == "Aborted" ? abortedItems.push(todo) : ''})
-    
-    return(
-        <ul>
-            {newItems.map(item => <li>{item.name}&nbsp; <p>{item.date}</p></li>)}
-        </ul>
+    Todos.forEach(todo => { todo.status == "Aborted" ? abortedItems.push(todo) : '' })
+
+    const [input, setInput] = useState('')
+    const [showAddNew, setAddNew] = useState(false)
+    const [isClicked, setIsClicked] = useState(false);
+
+    let currentDate = moment().format('MMMM Do YYYY, h:mm:ss a')
+
+    function addNewItem() {
+        const [isClicked, setIsClicked] = useState(false);
+        Todos.unshift({
+            name: input,
+            date: currentDate,
+            status: "New"
+        })
+        setAddNew(false)
+        setInput('')
+    }
+
+    function cancelAddNew() {
+        setAddNew(false)
+        setInput('')
+    }
+
+    function addNewTodo() {
+        let myInput = document.getElementById("cc-1-input")
+        myInput.value = ''
+        setAddNew(true);
+    }
+
+    return (
+        <div className="content-columns">
+            <ul className="content-column" id="cc-1">
+                <div className="cc-wrapper">
+                    <div id="cc-addnew" className="content-column-listitem" style={showAddNew ? {} : { display: 'none' }}>
+                        <input className="cc-1-input" id="cc-1-input" onInput={e => setInput(e.target.value)}></input>
+                        <p>{currentDate}</p>
+                        <div className="cc-1-action">
+                            <button className="green-button" onClick={addNewItem}>Save</button>
+                            <button className="red-button" onClick={cancelAddNew}>Cancel</button>
+                        </div>
+                    </div>
+                    {newItems.map(item => <li className="content-column-listitem"><b>{item.name}</b>&nbsp; <p>{item.date}</p>
+                        <div className="cc-1-action">
+                            <button className="green-button" onClick={addNewItem}>Finished</button>
+                            <button className="red-button" onClick={cancelAddNew}>Abort</button>
+                        </div>
+                    </li>)}
+                    <div className="add-new-todo" onClick={addNewTodo}>
+                        Add New Task
+                    </div>
+                </div>
+            </ul>
+            <ul className="content-column" id="cc-2">
+                {finishedItems.map(item => <li className="content-column-listitem"><b>{item.name}</b>&nbsp; <p>{item.date}</p>
+                    <div className="cc-2-action">
+                        <p>Task was finished {item.date}</p>
+                    </div>
+                </li>)}
+            </ul>
+            <ul className="content-column" id="cc-3">
+                {abortedItems.map(item => <li className="content-column-listitem"><b>{item.name}</b>&nbsp; <p>{item.date}</p>
+                    <div className="cc-3-action">
+                        <p>Task was aborted {item.date}</p>
+                    </div>
+                </li>)}
+            </ul>
+
+        </div>
     )
 }
 

@@ -12,7 +12,7 @@ function Content(props) {
             <h3>{category}</h3>
             {props.activeId == 1 ? <Home></Home> : ''}
             {props.activeId == 2 ? <List items={ListItem}></List> : ''}
-            {props.activeId == 3 ? <Columns></Columns> : ''}
+            {props.activeId == 3 ? <Columns /> : ''}
             {props.activeId == 4 ? <Home></Home> : ''}
         </div>
     )

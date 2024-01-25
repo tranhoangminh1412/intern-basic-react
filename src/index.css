@@ -60,6 +60,7 @@
 #root {
   height: 936px;
   display: inline-block;
+  width: -webkit-fill-available;
 }
 
 .app {
@@ -102,4 +103,88 @@ ol {
 
 h3 {
   text-align: center;
+}
+
+.content-columns {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.Content {
+  width: 100%;
+}
+
+.content-column {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  background: #F0F0F0;
+  padding: 10px;
+  overflow: hidden;
+  height: 790px;
+  position: relative;
+}
+
+.content-column-listitem {
+  padding: 5px;
+  width: 13.5em;
+  background-color: floralwhite;
+  overflow: hidden; /* make sure it hides the content that overflows */
+  white-space: nowrap; /* don't break the line */
+  text-overflow: ellipsis; /* give the beautiful '...' effect */
+}
+
+.cc-1-action {
+  display: flex;
+  gap: 6px;
+  align-items: flex-start;
+  margin-top: 6px;
+}
+
+.green-button {
+  background-color: green;
+  padding: 6px;
+  color: white;
+  min-width: 40px;
+  cursor: pointer;
+  border: none;
+}
+
+.red-button {
+  background-color: red;
+  padding: 6px;
+  color: white;
+  min-width: 40px;
+  cursor: pointer;
+  border: none;
+}
+
+.cc-2-action{
+  color: green;
+  text-wrap: balance;
+  margin-top: 4px;
+}
+
+.cc-3-action{
+  color: red;
+  text-wrap: balance;
+  margin-top: 4px;
+}
+
+.add-new-todo {
+  color: #6FB38C;
+  border: 2px solid #6FB38C;
+  text-align: center;
+  padding: 5px;
+  bottom: 13px; 
+  position: absolute; 
+  width: 211px;
+  background-color: #F0F0F0;
+}
+
+.cc-wrapper{
+  gap: 10px;
+  overflow-y: auto;
+  height: 900px;
+  padding-bottom: 40px;
 }
