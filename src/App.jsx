@@ -20,7 +20,7 @@ function App() {
     { id: 4, name: "Bai 3"},
   ]
 
-  console.log(Todos.forEach(todos => {"HELLOOOOOOOOOO" + todos.date.toUTCString}));
+  // console.log(Todos.forEach(todos => {"HELLOOOOOOOOOO" + todos.date.toUTCString}));
 
   return (
     // <List items={ListItem} category="Todos"></List>

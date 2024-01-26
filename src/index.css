@@ -180,6 +180,7 @@ h3 {
   position: absolute; 
   width: 211px;
   background-color: #F0F0F0;
+  cursor: pointer;
 }
 
 .cc-wrapper{
