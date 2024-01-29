@@ -1,7 +1,7 @@
 
 function Home (props){
     return(
-        <p>
+        <p className="home-text">
             Welcome to Bai Tap React - Minh Tran
         </p>
     )

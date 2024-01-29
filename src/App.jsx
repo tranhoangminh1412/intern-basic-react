@@ -6,28 +6,25 @@ import List from "./components/Sidebar/components/todoList/List.jsx";
 import ListItem from "./components/Sidebar/components/todoList/ListItem.jsx";
 import Sidebar from "./components/Sidebar/Sidebar.jsx";
 import Content from "./components/Content/Content.jsx";
-import Todos from "./components/Content/Columns/Todos.jsx";
+import Todos from "./components/Content/ex2/Todos.jsx";
 import { useState } from "react";
 
 function App() {
 
-  const [activeId,setActiveId] = useState(1)
+  const [activeId, setActiveId] = useState(1)
 
   const sidebarItems = [
-    { id: 1, name: "Home"},
-    { id: 2, name: "Todo List"},
-    { id: 3, name: "Todo App"},
-    { id: 4, name: "Bai 3"},
+    { id: 1, name: "Home" },
+    { id: 2, name: "Todo List" },
+    { id: 3, name: "Todo App" },
+    { id: 4, name: "Request Form System" },
   ]
 
-  // console.log(Todos.forEach(todos => {"HELLOOOOOOOOOO" + todos.date.toUTCString}));
-
   return (
-    // <List items={ListItem} category="Todos"></List>
-    <div className="app">
-      <Sidebar className="sidebar" activeId={activeId} setActiveId={setActiveId} items={sidebarItems} category="Basic Exercise" />
-      <Content activeId = {activeId} category={sidebarItems[activeId-1].name}/>
-    </div>
+      <div className="app">
+        <Sidebar className="sidebar" activeId={activeId} setActiveId={setActiveId} items={sidebarItems} category="Basic Exercise" />
+        <Content activeId={activeId} category={sidebarItems[activeId - 1].name} />
+      </div>
   );
 }
 
