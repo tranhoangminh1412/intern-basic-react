@@ -23,7 +23,14 @@ function RegisterBlock(props) {
                         <div className="register-progress-block-heading">Finished</div>
                     </div>
                 </div>
-                
+                <div className="register-input-block">
+                    <div className="register-input-block-item">
+                        <div className="register-input-block-item-textbox">
+                        <div className="require">Must</div>
+                        <div className="heading">Fullname</div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     )
