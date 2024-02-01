@@ -318,6 +318,7 @@ input[type="landing"].login-block-inputfield::placeholder {
   background: #FFF;
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
   position: absolute;
+  overflow: scroll;
 }
 
 .register-progress-block {
@@ -361,7 +362,7 @@ input[type="landing"].login-block-inputfield::placeholder {
 .register-input-block {
   display: flex;
   width: 530px;
-  height: 260px;
+  height: max-content;
   padding: 16px;
   flex-direction: column;
   align-items: flex-start;
@@ -396,11 +397,19 @@ input[type="landing"].login-block-inputfield::placeholder {
   gap: 10px;
   border-radius: 3px;
   background: #627D98;
+  color: var(--White, #FFF);
+  text-align: center;
+  font-family: "Noto Sans";
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 20px;
+  /* 166.667% */
 }
 
 .register-input-block-item-inputframe {
   display: flex;
-  width: 450px;
+  width: 510px;
   height: 40px;
   padding: 8px 10px;
   align-items: center;
@@ -408,7 +417,14 @@ input[type="landing"].login-block-inputfield::placeholder {
   flex-shrink: 0;
   border-radius: 4px;
   border: 1px solid #DCDCDC;
-  background: #FFF;
+  color: var(--Black-01, #333);
+  /* Ja/14px-Regular */
+  font-family: "Noto Sans";
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 20px;
+  /* 142.857% */
 }
 
 .register-input-block-item-birthday {
@@ -431,4 +447,56 @@ input[type="landing"].login-block-inputfield::placeholder {
   display: inline-flex;
   align-items: center;
   gap: 8px;
+}
+
+#form-file-upload {
+  height: 16rem;
+  width: 28rem;
+  max-width: 100%;
+  text-align: center;
+  position: relative;
+}
+
+#input-file-upload {
+  display: none;
+}
+
+#label-file-upload {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 7px;
+  border: 1px solid #DCDCDC;
+  background: #F8F8F8;
+  width: 530px;
+  height: 200px;
+  flex-shrink: 0;
+}
+
+#label-file-upload.drag-active {
+  background-color: #ffffff;
+}
+
+.upload-button {
+  cursor: pointer;
+  padding: 0.25rem;
+  font-size: 1rem;
+  border: none;
+  font-family: 'Oswald', sans-serif;
+  background-color: transparent;
+}
+
+.upload-button:hover {
+  text-decoration-line: underline;
+}
+
+#drag-file-element {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 1rem;
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
+  left: 0px;
 }

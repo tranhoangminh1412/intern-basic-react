@@ -1,6 +1,5 @@
 import Todos from "./Todos"
 import moment from "moment/moment"
-import { func } from "prop-types"
 import { ReactDOM, useState } from "react"
 
 function Columns(props) {

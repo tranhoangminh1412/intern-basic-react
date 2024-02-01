@@ -1,8 +1,13 @@
 import Users from "./Users";
+import React, { useState } from "react";
+import { ReactDOM } from "react";
+import Describe from "./Describe";
+import DragnDrop from "./DragnDrop";
 
 function RegisterBlock(props) {
     const {setLogin} = props
     setLogin(false)
+    let spanRef = React.createRef()
 
     return(
         <div className="content-wrapper">
@@ -30,7 +35,52 @@ function RegisterBlock(props) {
                         <div className="heading">Fullname</div>
                         </div>
                     </div>
+                    <input className="register-input-block-item-inputframe"></input>
                 </div>
+                <div className="register-input-block">
+                    <div className="register-input-block-item">
+                        <div className="register-input-block-item-textbox">
+                        <div className="require">Must</div>
+                        <div className="heading">Birthday</div>
+                        </div>
+                    </div>
+                    <div style={{width: 'max-content'}} className="register-input-block-item-inputframe">
+                        <input style={{width: '70px', border: 'none'}}  placeholder="0000/00/00">
+                        </input>
+                        <img style={{}} src="./src/assets/calendar.svg" alt=""></img>
+                    </div>
+                </div>
+                <div className="register-input-block">
+                    <div className="register-input-block-item">
+                        <div className="register-input-block-item-textbox">
+                        <div className="heading">City</div>
+                        </div>
+                    </div>
+                    <div style={{position: 'relative'}} className="register-input-block-item-inputframe">
+                        Hà Nội
+                        <img style={{position: 'absolute', right: '5px'}} src="./src/assets/CaretDown.svg" alt=""></img>
+                    </div>
+                </div>
+                <div className="register-input-block">
+                    <div className="register-input-block-item">
+                        <div className="register-input-block-item-textbox">
+                        <div className="heading">Position</div>
+                        </div>
+                    </div>
+                    <div style={{position: 'relative',color: 'var(--Gray-Gray02, #999)'}} className="register-input-block-item-inputframe">
+                        <img style={{}} src="./src/assets/search.svg" alt=""></img>
+                        Select a position that you want
+                    </div>
+                </div>
+                <div className="register-input-block">
+                    <div className="register-input-block-item">
+                        <div className="register-input-block-item-textbox">
+                        <div className="heading">Describe yourself</div>
+                        </div>
+                    </div>
+                    <Describe />
+                </div>
+                <DragnDrop />
             </div>
         </div>
     )

@@ -1,7 +1,4 @@
-// import Card from "./Card.jsx";
-// import Button from "./Button.jsx";
-// import Student from "./Student.jsx";
-// import UserGreeting from "./UserGreeting.jsx";
+
 import List from "./components/Sidebar/components/todoList/List.jsx";
 import ListItem from "./components/Sidebar/components/todoList/ListItem.jsx";
 import Sidebar from "./components/Sidebar/Sidebar.jsx";
