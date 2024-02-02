@@ -1,11 +1,12 @@
 import React from "react";
 
 // drag drop file component
-function DragnDrop() {
+function DragnDrop(props) {
     // drag state
     const [dragActive, setDragActive] = React.useState(false);
     // ref
     const inputRef = React.useRef(null);
+    const avatar = props
 
     // handle drag events
     const handleDrag = function (e) {
@@ -42,18 +43,23 @@ function DragnDrop() {
     };
 
     return (
-        <div className="register-input-block">
+
+        <div className="register-input-block-item-drag">
+            <div className="heading">Avatar (only one)</div>
+
             <form id="form-file-upload" onDragEnter={handleDrag} onSubmit={(e) => e.preventDefault()}>
-                <input ref={inputRef} type="file" id="input-file-upload" multiple={true} onChange={handleChange} />
+                <input ref={avatar} type="file" id="input-file-upload" multiple={true} onChange={handleChange} />
                 <label id="label-file-upload" htmlFor="input-file-upload" className={dragActive ? "drag-active" : ""}>
                     <div>
-                        <p>Drag and drop your file here or</p>
+                        <img src="./src/assets/drag.svg" alt="" />
+                        <p className="drag-text">Drag and drop your file here or</p>
                         <button className="upload-button" onClick={onButtonClick}>Upload a file</button>
                     </div>
                 </label>
                 {dragActive && <div id="drag-file-element" onDragEnter={handleDrag} onDragLeave={handleDrag} onDragOver={handleDrag} onDrop={handleDrop}></div>}
             </form>
         </div>
+
     );
 };
 
