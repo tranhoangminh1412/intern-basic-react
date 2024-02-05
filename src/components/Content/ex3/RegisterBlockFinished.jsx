@@ -23,7 +23,7 @@ function RegisterBlockFinished(props) {
                             <div className="heading">Reason</div>
                         </div>
                         <div>
-                            <input ref={reason} maxLength={1000} className="register-input-block-item-inputframe"
+                            <input maxLength={1000} className="register-input-block-item-inputframe"
                                 style={{ width: '428px', height: '10em', alignContent: 'baseline', alignItems: 'baseline' }} />
                         </div>
                     </div>
@@ -34,7 +34,7 @@ function RegisterBlockFinished(props) {
                         </div>
 
                         <div style={{ width: 'max-content' }} className="register-input-block-item-inputframe">
-                            <input ref={salary} className="wish-salary-text" style={{ width: '70px', border: 'none' }} placeholder="10000000">
+                            <input className="wish-salary-text" style={{ width: '70px', border: 'none' }} placeholder="10000000">
                             </input>
                             <p className="wish-salary-text"> VNĐ</p>
                         </div>

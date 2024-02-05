@@ -6,7 +6,7 @@ function DragnDrop(props) {
     const [dragActive, setDragActive] = React.useState(false);
     // ref
     const inputRef = React.useRef(null);
-    const avatar = props
+    const setAvatar = props
 
     // handle drag events
     const handleDrag = function (e) {
@@ -25,7 +25,7 @@ function DragnDrop(props) {
         e.stopPropagation();
         setDragActive(false);
         if (e.dataTransfer.files && e.dataTransfer.files[0]) {
-            // handleFiles(e.dataTransfer.files);
+            handleFiles(e.dataTransfer.files);
         }
     };
 
@@ -33,9 +33,13 @@ function DragnDrop(props) {
     const handleChange = function (e) {
         e.preventDefault();
         if (e.target.files && e.target.files[0]) {
-            // handleFiles(e.target.files);
+            handleFiles(e.target.files);
         }
     };
+
+    const handleFiles = function (e) {
+        setAvatar = e[0];
+    }
 
     // triggers the input when the button is clicked
     const onButtonClick = () => {
@@ -48,7 +52,7 @@ function DragnDrop(props) {
             <div className="heading">Avatar (only one)</div>
 
             <form id="form-file-upload" onDragEnter={handleDrag} onSubmit={(e) => e.preventDefault()}>
-                <input ref={avatar} type="file" id="input-file-upload" multiple={true} onChange={handleChange} />
+                <input type="file" id="input-file-upload" multiple={false} onChange={handleChange} />
                 <label id="label-file-upload" htmlFor="input-file-upload" className={dragActive ? "drag-active" : ""}>
                     <div>
                         <img src="./src/assets/drag.svg" alt="" />

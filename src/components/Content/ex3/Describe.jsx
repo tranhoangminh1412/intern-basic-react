@@ -6,7 +6,7 @@ function Describe(props) {
     return (
         <div>
             <div>
-                <input ref={description} maxLength={1000} className="register-input-block-item-inputframe"
+                <input maxLength={1000} className="register-input-block-item-inputframe"
                     style={{ width: '428px', height: '10em', alignContent: 'baseline', alignItems: 'baseline' }}
                     value={input} onInput={e => setInput(e.target.value)} />
             </div>
