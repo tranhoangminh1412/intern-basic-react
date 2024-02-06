@@ -1,7 +1,7 @@
 
 
 function ErrorMessage(props) {
-    const { setUsrFlag, usrFlag, passwordFlag, setPasswordFlag, nameFlag, birthdayFlag} = props
+    const { setUsrFlag, usrFlag, passwordFlag, setPasswordFlag, nameFlag, birthdayFlag, birthday} = props
 
     if (usrFlag) {
         return (
@@ -20,13 +20,6 @@ function ErrorMessage(props) {
         return (
             <p className="input-error-message">
                 Name contains non-letters
-            </p>
-        )
-    }
-    else if (!birthdayFlag) {
-        return (
-            <p className="input-error-message">
-                Invalid date format
             </p>
         )
     }

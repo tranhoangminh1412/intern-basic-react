@@ -33,7 +33,7 @@ function LandingPage() {
 
     return (
         <div className="landingpage-body">
-            {loginActive ? <LoginBlock registerAcive={registerActive} setRegister={setRegister}
+            {loginActive ? <LoginBlock registerAcive={registerActive} setRegister={setRegister} setLogin={setLogin}
                 loginSuccess={loginSuccess} setLoginSuccess={setLoginSuccess} /> : <></>}
             {registerActive ? <RegisterBlock setRegister={setRegister} username={username} setUsername={setUsername} password={password} setPassword={setPassword}
              setLogin={setLogin} fullname={fullname} setFullname={setFullname} birthday={birthday} setBirthday={setBirthday} city={city} 

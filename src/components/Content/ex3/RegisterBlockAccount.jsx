@@ -5,7 +5,6 @@ import { ReactDOM, useState } from "react"
 
 function RegisterBlockAccount(props) {
     const { username, setUsername, password, setPassword, activePage, setLogin, setPage } = props
-    setLogin(false)
     const [usrFlag,setUsrFlag] = useState(false)
     const [passwordFlag,setPasswordFlag] = useState(false)
 

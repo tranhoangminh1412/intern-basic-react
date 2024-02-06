@@ -1,7 +1,7 @@
 import Users from "./Users"
 
 function LoginBlock(props) {
-    const {registerActive,setRegister,loginSuccess,setLoginSuccess} = props
+    const {registerActive,setRegister,loginSuccess,setLoginSuccess,setLogin} = props
 
     function validateLogin() {
         const username = document.getElementById("login-username").value
@@ -32,7 +32,7 @@ function LoginBlock(props) {
             <div className="login-register-block">
                 <div className="login-register-prompt-block">
                     <div className="login-register-prompt-block-heading">Don't have an account?</div>
-                    <div className="login-register-prompt-block-button" onClick={() => setRegister(true)}>Register</div>
+                    <div className="login-register-prompt-block-button" onClick={() => {setRegister(true);setLogin(false)}}>Register</div>
                 </div>
             </div>
             <div className="login-block">
