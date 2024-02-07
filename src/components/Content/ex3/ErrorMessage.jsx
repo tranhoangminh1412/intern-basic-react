@@ -16,7 +16,7 @@ function ErrorMessage(props) {
             </p>
         )
     }
-    else if (nameFlag) {
+    else if (!nameFlag && nameFlag != undefined) {
         return (
             <p className="input-error-message">
                 Name contains non-letters

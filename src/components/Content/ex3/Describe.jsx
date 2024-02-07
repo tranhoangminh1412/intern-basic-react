@@ -1,14 +1,14 @@
 import { useState } from "react";
 
 function Describe(props) {
-    const description = props
+    const {setDescription} = props
     const [input, setInput] = useState(props?.value ?? '');
     return (
         <div>
             <div>
                 <input maxLength={1000} className="register-input-block-item-inputframe"
                     style={{ width: '428px', height: '10em', alignContent: 'baseline', alignItems: 'baseline' }}
-                    value={input} onInput={e => setInput(e.target.value)} />
+                    value={input} onInput={e => {setInput(e.target.value);setDescription(e.target.value)}} />
             </div>
             <p style={{
                 color: '#666',

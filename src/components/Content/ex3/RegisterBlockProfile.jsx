@@ -1,5 +1,5 @@
 import Users from "./Users";
-import React, { useMemo, useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import { ReactDOM } from "react";
 import Describe from "./Describe";
 import DragnDrop from "./DragnDrop";
@@ -12,18 +12,32 @@ import Positions from "./Positions";
 function RegisterBlockProfile(props) {
     const { fullname, setFullname, birthday, setBirthday, city, setCity, position, setPosition, description,
             setDescription, avatar, setAvatar, activePage, setLogin, setPage } = props
-    const [nameFlag, setNameFlag] = useState(false)
+    const [nameFlag, setNameFlag] = useState(true)
     const [showPositions,setShowPositions] = useState(false)
     const [positionFlag,setPositionFlag] = useState(false)
     const [positionPlaceholder,setPositionPlaceholder] = useState(position)
     const [positionSearchValue,setPositionSearchValue] = useState("")
     const [positionSelectValue,setPositionSelectValue] = useState("")
 
+    const setButton = useMemo(
+        () => {
+            if(fullname == '' || birthday == ''){
+                console.log(fullname + ' ' + birthday)
+                return true
+            }
+            else{
+                return false
+            }
+        },
+        [fullname,birthday,positionFlag]
+    )
+
+
     const getName = (event) => {
         setFullname(event.target.value)
-        const nonAlphabeticRegex = /[^a-zA-Z]/;
+        const nonAlphabeticRegex = /^[a-zA-Z\s]*$/;
         setNameFlag(nonAlphabeticRegex.test(event.target.value))
-        if (nameFlag) {
+        if (!nameFlag) {
             event.target.style.borderColor = "red"
         }
         else {
@@ -58,12 +72,12 @@ function RegisterBlockProfile(props) {
     //     document.querySelector(".datepicker").style.display == 'none'
     // }, 200);
 
-    function searchPosition() {
+    function validatePosition() {
         Positions.forEach(p => {
-            if (x.getElementById("positionInput").value == p) {
+            if (positionSelectValue == p) {
                 console.log('p: ' +p)
-                console.log('value in input: ' + document.getElementById("positionInput").value)
-                setPosition(document.getElementById("positionInput").value)
+                console.log('value in input: ' + positionSelectValue)
+                setPosition(positionSelectValue)
                 setPositionFlag(true)
                 console.log("Found position")
             }
@@ -71,15 +85,7 @@ function RegisterBlockProfile(props) {
     }
 
     function handleNextClick(){
-        searchPosition();
-        setTimeout(() => {
-            if (positionFlag) {
-                setPage(3)
-            }
-            else{
-                console.log("not allowed to go through")
-            }
-        }, 100);
+        
     }
     
     return (
@@ -94,7 +100,7 @@ function RegisterBlockProfile(props) {
                             <div className="require">Must</div>
                             <div className="heading">Fullname</div>
                         </div>
-                        <input onChange={getName} className="register-input-block-item-inputframe"></input>
+                        <input onInput={getName} className="register-input-block-item-inputframe" value={fullname}></input>
                         <ErrorMessage nameFlag={nameFlag} />
                     </div>
 
@@ -132,15 +138,14 @@ function RegisterBlockProfile(props) {
                         </div>
 
                         <div style={{ position: 'relative', color: 'var(--Gray-Gray02, #999)' }} className="register-input-block-item-inputframe">
-                            <img onClick={searchPosition} style={{cursor: "pointer"}} src="./src/assets/search.svg" alt=""></img>
+                            <img src="./src/assets/search.svg" alt=""></img>
                             <input placeholder={"Select a position that you want"} style={{border: 'none', overflow: 'hidden', width: '27.44em'}} 
                             className="register-input-block-item-inputframe" onFocus={()=>{setShowPositions(true)}} onBlur={()=>{setTimeout(() => {
                                 setShowPositions(false)
                             }, 150);}} id="positionInput"
-                            value={positionSelectValue}
-                            onInput={(e) => {setPositionSearchValue(e.target.value)}}
+                            value={positionSelectValue} 
+                            onInput={(e) => {setPositionSelectValue(e.target.value);setPositionSearchValue(e.target.value);validatePosition}} 
                             />
-                            
                         </div>
                         <PositionsDropdown showPositions={showPositions} setPosition={setPosition} setPositionPlaceholder={setPositionPlaceholder} 
                         setPositionSelectValue = {setPositionSelectValue} positionSearchValue={positionSearchValue} />
@@ -150,12 +155,12 @@ function RegisterBlockProfile(props) {
                         <div className="register-input-block-item-textbox">
                             <div className="heading">Describe yourself</div>
                         </div>
-                        <Describe description={description} />
+                        <Describe description={description} setDescription={setDescription} />
                     </div>
                     <DragnDrop setAvatar={setAvatar} />
                 </div>
                 <div className="register-action">
-                    <button onClick={() => { handleNextClick() }} style={{ background: '#627D98', color: 'var(--White, #FFF)' }} className="register-action-button">Next</button>
+                    <button disabled={setButton} onClick={() => { setPage(3); console.log(fullname + ' ' + birthday) }} style={{ background: '#627D98', color: 'var(--White, #FFF)' }} className="register-action-button">Next</button>
                     <button onClick={() => { setPage(1) }} style={{ background: '#FFF', border: '1px solid #DCDCDC' }} className="register-action-button">Back</button>
                 </div>
             </div>

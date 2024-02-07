@@ -1,13 +1,30 @@
+import { useMemo, useState } from "react"
 import RegisterProgress from "./RegisterProgress"
 
 function RegisterBlockFinished(props) {
-    const { setRegister,reason, salary, activePage, setLogin, setPage } = props
+    const { setRegister,reason, setReason, salary, setSalary, activePage, setLogin, setPage } = props
+    // const flag = useMemo(
+    //     () => {
 
-    setLogin(false)
+    //     },
+    //     []
+    // )
+    const [salaryFlag,setSalaryFlag] = useState(false)
 
     function handleFinishRegister(){
         setLogin(true)
         setRegister(true)
+    }
+
+    function getSalary(value) {
+        const salaryRegex = /^\d{1,9}$/;
+        if(salaryRegex.test(value)){
+            setSalary(value)
+            setSalaryFlag(false)
+        }
+        else {
+            setSalaryFlag(true)
+        }
     }
 
     return (
@@ -24,7 +41,9 @@ function RegisterBlockFinished(props) {
                         </div>
                         <div>
                             <input maxLength={1000} className="register-input-block-item-inputframe"
-                                style={{ width: '428px', height: '10em', alignContent: 'baseline', alignItems: 'baseline' }} />
+                                style={{ width: '428px', height: '10em', alignContent: 'baseline', alignItems: 'baseline' }} 
+                                onInput={(e) => setReason(e.target.value)} 
+                                />
                         </div>
                     </div>
                     <div className="register-input-block-item">
@@ -34,8 +53,10 @@ function RegisterBlockFinished(props) {
                         </div>
 
                         <div style={{ width: 'max-content' }} className="register-input-block-item-inputframe">
-                            <input className="wish-salary-text" style={{ width: '70px', border: 'none' }} placeholder="10000000">
+                            <input className="wish-salary-text" style={{ width: '75px', border: 'none' }} placeholder="10000000"
+                            onInput={(e) => getSalary(e.target.value)}>
                             </input>
+                            <p className="input-error-message" style={{display: salaryFlag ? 'unset' : 'none'}}>Invalid Salary Number</p>
                             <p className="wish-salary-text"> VNĐ</p>
                         </div>
                     </div>
