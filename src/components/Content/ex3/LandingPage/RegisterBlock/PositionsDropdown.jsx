@@ -1,4 +1,4 @@
-import Positions from "./Positions";
+import Positions from "../../Positions";
 import { render } from "react-dom";
 
 export default function PositionsDropdown(props) {

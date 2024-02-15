@@ -1,12 +1,13 @@
 import ErrorMessage from "./ErrorMessage"
 import RegisterProgress from "./RegisterProgress"
-import Users from "./Users"
+import Users from "../../Users"
 import { ReactDOM, useState } from "react"
 
 function RegisterBlockAccount(props) {
     const { username, setUsername, password, setPassword, activePage, setLogin, setPage } = props
     const [usrFlag,setUsrFlag] = useState(false)
     const [passwordFlag,setPasswordFlag] = useState(false)
+    const [repeat,setRepeat] = useState('')
 
     const handleChange = (event) => {
         Users.forEach(user => {
@@ -24,7 +25,7 @@ function RegisterBlockAccount(props) {
     }
 
     function handleNextClick() {
-        if(usrFlag){
+        if(!username || !password || passwordFlag || !repeat){
             console.log("Invalid Fields")
             setUsrFlag(false)
 
@@ -77,7 +78,7 @@ function RegisterBlockAccount(props) {
                             <div className="require">Must</div>
                             <div className="heading">Repeat Password</div>
                         </div>
-                        <input maxLength={32} onChange={comparePassword} className="register-input-block-item-inputframe"></input>
+                        <input maxLength={32} onChange={comparePassword} className="register-input-block-item-inputframe" onInput={(e) => setRepeat(e)} />
                         <ErrorMessage passwordFlag={passwordFlag} setPasswordFlag={setPasswordFlag} />
                     </div>
                 </div>

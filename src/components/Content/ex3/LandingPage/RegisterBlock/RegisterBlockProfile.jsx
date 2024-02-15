@@ -1,4 +1,4 @@
-import Users from "./Users";
+import Users from "../../Users";
 import React, { useEffect, useMemo, useState } from "react";
 import { ReactDOM } from "react";
 import Describe from "./Describe";
@@ -7,7 +7,7 @@ import RegisterProgress from "./RegisterProgress";
 import ErrorMessage from "./ErrorMessage";
 import ReactInfiniteCalendar from "./InfiniteCalendar";
 import PositionsDropdown from "./PositionsDropdown";
-import Positions from "./Positions";
+import Positions from "../../Positions";
 
 function RegisterBlockProfile(props) {
     const { fullname, setFullname, birthday, setBirthday, city, setCity, position, setPosition, description,
