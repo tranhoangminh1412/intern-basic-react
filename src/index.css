@@ -60,6 +60,7 @@ h3 {
 
 .Content {
   width: 100vw;
+  display: flex;
 }
 
 .content-column {
@@ -677,4 +678,240 @@ input[type="landing"].login-block-inputfield::placeholder {
   letter-spacing: 0px;
   text-align: left;
   color: #f0f0f0;
+}
+
+.admin-sidebar {
+  width: 250px;
+  height: 100vh;
+  border-right: #dcdcdc 1px solid;
+}
+
+.sidebar-info-block {
+  width: fill;
+  padding: 16px 50px;
+  gap: 12px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+.sidebar-info-avatar {
+  width: 150px;
+  height: 150px;
+  border: 1px;
+  border-color: none;
+  border-radius: 100px;
+}
+
+.sidebar-info-fullname {
+  font-family: Inter;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 20px;
+  letter-spacing: 0em;
+  text-align: left;
+}
+
+.sidebar-info-role {
+  font-family: Inter;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px;
+  letter-spacing: 0em;
+  text-align: left;
+}
+
+.sidebar-item-block {
+  height: fill;
+  display: flex;
+  flex-direction: column;
+}
+
+.sidebar-item {
+  width: auto;
+  padding: 10px 24px;
+  cursor: pointer;
+}
+
+.sidebar-item-active {
+  background-color: #eaf4ff;
+  width: auto;
+  padding: 10px 24px;
+}
+
+.sidebar-item-text {
+  font-family: Inter;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 20px;
+  letter-spacing: 0em;
+  text-align: left;
+}
+
+.sidebar-item-active .sidebar-item-text {
+  color: #0063c3;
+  font-family: Inter;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 20px;
+  letter-spacing: 0em;
+  text-align: left;
+}
+
+.admin-pagebackground {
+  width: -webkit-fill-available;
+  height: auto;
+  background-color: #f9f9f9;
+  padding: 48px 32px 48px 32px;
+}
+
+.admin-pagecontainer {
+  width: auto;
+  height: -webkit-fill-available;
+  background-color: #ffffff;
+  padding: 24px;
+  border-radius: 4px;
+  box-shadow: 0px 4px 4px 0px #00000040;
+}
+
+.admin-pagecontent {
+  width: auto;
+  height: -webkit-fill-available;
+  gap: 16px;
+}
+
+.admin-requestlist-container {
+  width: auto;
+  height: fit-content;
+  border-bottom: #e4e7eb 1px solid;
+}
+
+.admin-requestlist-header-container {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  width: -webkit-fill-available;
+  height: 56px;
+  border-top: #e4e7eb 2px solid;
+  border-bottom: #e4e7eb 2px solid;
+}
+
+.admin-requestlist-header-standin {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
+  width: 44px;
+  height: 56px;
+}
+
+.admin-requestlist-header-fullname {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
+  width: calc(100% * 0.32);
+  height: 56px;
+}
+
+.admin-requestlist-header-text {
+  font-family: "Noto Sans";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  display: flex;
+  align-items: center;
+  color: #333333;
+}
+/* Frame 486149 */
+
+/* Auto layout */
+.admin-requestlist-header-city {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
+  width: calc(100% * 0.16);
+  height: 56px;
+}
+/* Frame 486155 */
+
+/* Auto layout */
+.admin-requestlist-header-salary {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
+  width: calc(100% * (180 / 998));
+  height: 56px;
+}
+
+/* Frame 486153 */
+
+/* Auto layout */
+.admin-requestlist-header-timecreated {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
+  width: calc(100% * (95 / 998));
+  height: 56px;
+}
+
+/* Frame 486156 */
+
+/* Auto layout */
+.admin-requestlist-header-status {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  width: calc(100% * (199 / 998));
+  height: 56px;
+}
+
+.admin-requestlist-wrapper {
+  display: grid;
+  grid-template-columns:
+    44px
+    calc(100% * 0.32) calc(100% * 0.16)
+    calc(100% * (180 / 998)) calc(100% * (95 / 998)) calc(100% * (199 / 998));
+}
+
+.requestlist-maintext {
+  font-family: Noto Sans;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px;
+  letter-spacing: 0px;
+  text-align: left;
+  justify-content: center;
+  align-self: center;
+}
+
+.requestlist-position {
+  font-family: Noto Sans;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 20px;
+  letter-spacing: 0px;
+  text-align: left;
+}
+
+.requestlist-status {
+  width: fit-content;
+  height: 24px;
+  padding: 0px 8px 0px 8px;
+  border-radius: 4px;
+  justify-content: center;
+  align-self: center;
+  font-family: Noto Sans;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px;
+  letter-spacing: 0px;
+  text-align: left;
 }
