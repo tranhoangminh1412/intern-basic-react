@@ -1,7 +1,7 @@
 import { useState } from "react"
 
 
-function Sidebar(props) {
+function AdminSidebar(props) {
     const {fullname, position, setActivePage, activeUser} = props
 
     const [active,setActive] = useState(1)
@@ -25,4 +25,4 @@ function Sidebar(props) {
     )
 }
 
-export default Sidebar
+export default AdminSidebar

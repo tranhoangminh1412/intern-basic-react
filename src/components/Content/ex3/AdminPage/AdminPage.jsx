@@ -1,19 +1,19 @@
 import AdminContent from "./AdminContent";
-import Sidebar from "./Sidebar";
+import AdminSidebar from "./AdminSidebar";
 
 function AdminPage(props) {
   const { setActivePage, setLoading, setPopUp, activeUser } = props;
 
   return (
-    <>
-      <Sidebar
+    <div style={{display:"flex"}}>
+      <AdminSidebar
         setActivePage={setActivePage}
         setLoading={setLoading}
         setPopUp={setPopUp}
         activeUser={activeUser}
       />
       <AdminContent />
-    </>
+    </div>
   );
 }
 

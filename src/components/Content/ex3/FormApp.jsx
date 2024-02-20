@@ -24,6 +24,7 @@ function FormApp() {
           setLoading={setLoading}
           setPopUp={setPopUp}
           setActiveUser={setActiveUser}
+          setActivePage={setActivePage}
         />
       ) : (
         <></>

@@ -20,7 +20,7 @@ function LandingPage(props) {
   const [avatar, setAvatar] = useState("");
   const [reason, setReason] = useState("");
   const [salary, setSalary] = useState("");
-  const { loading, setLoading, setPopUp } = props;
+  const { loading, setLoading, setPopUp, setActivePage } = props;
   //   const [fields, setFields] = useState({ username: "hi", password: "hello" });
 
   //     const handleABC = () => {
@@ -34,7 +34,6 @@ function LandingPage(props) {
 
   return (
     <div className="landingpage-body">
-      
       {loginActive ? (
         <LoginBlock
           registerAcive={registerActive}
@@ -43,6 +42,8 @@ function LandingPage(props) {
           loginSuccess={loginSuccess}
           setLoginSuccess={setLoginSuccess}
           setPopUp={setPopUp}
+          setActivePage={setActivePage}
+          setLoading={setLoading}
         />
       ) : (
         <></>
