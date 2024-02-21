@@ -3,7 +3,9 @@ import RegisterBlockAccount from "./RegisterBlockAccount";
 import RegisterBlockProfile from "./RegisterBlockProfile";
 import RegisterBlockFinished from "./RegisterBlockFinished";
 
-function RegisterBlock(props) {
+function RegisterBlock(props) { 
+  let newUser = {username:"",password:"",}
+
   const {
     setRegister,
     setLogin,
@@ -29,7 +31,8 @@ function RegisterBlock(props) {
     setSalary,
     setRegisterSuccess,
     setLoading,
-    setPopUp
+    setPopUp,
+    setActiveUser,
   } = props;
   const [activePage, setPage] = useState(1);
 
@@ -44,6 +47,7 @@ function RegisterBlock(props) {
           activePage={activePage}
           setLogin={setLogin}
           setPage={setPage}
+          newUser={newUser}
         />
       ) : (
         ""
@@ -65,6 +69,8 @@ function RegisterBlock(props) {
           activePage={activePage}
           setLogin={setLogin}
           setPage={setPage}
+          newUser={newUser}
+
         />
       ) : (
         ""
@@ -82,6 +88,8 @@ function RegisterBlock(props) {
           setRegisterSuccess={setRegisterSuccess}
           setLoading={setLoading}
           setPopUp={setPopUp}
+          setActiveUser={setActiveUser}
+          newUser={newUser}
         />
       ) : (
         ""

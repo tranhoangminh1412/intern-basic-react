@@ -13,8 +13,7 @@ export default function ReactInfiniteCalendar(props) {
 
     return (
         <div>
-            <InfiniteCalendar className="datepicker"  selected={false} 
-            
+            <InfiniteCalendar className="datepicker" selected={false} 
               onSelect={(date) => {
                 var converted = date.toLocaleString('default', { month: 'numeric' }) 
                              + ' ' + date.getDate() + ' ' +date.getFullYear();

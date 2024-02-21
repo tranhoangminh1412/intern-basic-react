@@ -14,13 +14,13 @@ function LandingPage(props) {
   const [password, setPassword] = useState("");
   const [fullname, setFullname] = useState("");
   const [birthday, setBirthday] = useState("");
-  const [city, setCity] = useState("");
+  const [city, setCity] = useState("Ha Noi");
   const [position, setPosition] = useState("");
   const [description, setDescription] = useState("");
   const [avatar, setAvatar] = useState("");
   const [reason, setReason] = useState("");
   const [salary, setSalary] = useState("");
-  const { loading, setLoading, setPopUp, setActivePage } = props;
+  const { loading, setLoading, setPopUp, setActivePage,setActiveUser } = props;
   //   const [fields, setFields] = useState({ username: "hi", password: "hello" });
 
   //     const handleABC = () => {
@@ -44,6 +44,7 @@ function LandingPage(props) {
           setPopUp={setPopUp}
           setActivePage={setActivePage}
           setLoading={setLoading}
+          setActiveUser={setActiveUser}
         />
       ) : (
         <></>
@@ -75,6 +76,7 @@ function LandingPage(props) {
           setRegisterSuccess={setRegisterSuccess}
           setLoading={setLoading}
           setPopUp={setPopUp}
+          setActiveUser={setActiveUser}
         />
       ) : (
         <></>

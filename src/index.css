@@ -618,13 +618,14 @@ input[type="landing"].login-block-inputfield::placeholder {
   left: 53px;
   margin-top: 80px;
   z-index: 2;
+  border: solid 1px #999;
 }
 
 .position-option {
   background-color: #ffffff;
-  border: solid 1px #999;
+  border: none;
   padding: 3px;
-  border-radius: 4px;
+  border-radius: 1px;
 }
 
 .position-option:hover {
@@ -913,4 +914,17 @@ input[type="landing"].login-block-inputfield::placeholder {
   line-height: 20px;
   letter-spacing: 0px;
   text-align: left;
+}
+
+.cities-dropdown {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  width: 397px;
+  height: 200px;
+  left: 0px;
+  overflow: scroll;
+  margin-top: 258px;
+  z-index: 2;
+  border: solid 1px #999;
 }

@@ -5,7 +5,7 @@ function AdminPage(props) {
   const { setActivePage, setLoading, setPopUp, activeUser } = props;
 
   return (
-    <div style={{display:"flex"}}>
+    <div style={{ display: "flex" }}>
       <AdminSidebar
         setActivePage={setActivePage}
         setLoading={setLoading}

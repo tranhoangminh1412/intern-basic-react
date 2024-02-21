@@ -10,6 +10,7 @@ function LoginBlock(props) {
     setPopUp,
     setLoading,
     setActivePage,
+    setActiveUser,
   } = props;
 
   function validateLogin() {
@@ -22,6 +23,7 @@ function LoginBlock(props) {
     Users.forEach((user) => {
       if (username == user.username) {
         if (password == user.password) {
+          setActiveUser(user);
           console.log("Login successful");
           setLoading(true);
           setPopUp((abc) => ({
