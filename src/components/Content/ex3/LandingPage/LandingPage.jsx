@@ -14,7 +14,7 @@ function LandingPage(props) {
   const [password, setPassword] = useState("");
   const [fullname, setFullname] = useState("");
   const [birthday, setBirthday] = useState("");
-  const [city, setCity] = useState("Ha Noi");
+  const [city, setCity] = useState("");
   const [position, setPosition] = useState("");
   const [description, setDescription] = useState("");
   const [avatar, setAvatar] = useState("");

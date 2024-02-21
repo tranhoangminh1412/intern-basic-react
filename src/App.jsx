@@ -11,12 +11,12 @@ function App() {
   const currentUrl = window.location.href;
   console.log(currentUrl);
   const match = currentUrl.match(/\/contents\/(\d+)/);
-  const number = match[1];
+//   const number = match[1];
 
-if (match && activeId != number) {
-  // Extract the number from the matched string
-  setActiveId(number);
-} 
+// if (match && activeId != number) {
+//   // Extract the number from the matched string
+//   setActiveId(number);
+// } 
 
   // const {sidebarItems} = useLoaderData();
 

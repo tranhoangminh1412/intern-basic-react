@@ -6,7 +6,7 @@ function DragnDrop(props) {
     const [dragActive, setDragActive] = React.useState(false);
     // ref
     const inputRef = React.useRef(null);
-    const setAvatar = props
+    const {setAvatar} = props
 
     // handle drag events
     const handleDrag = function (e) {
@@ -38,7 +38,7 @@ function DragnDrop(props) {
     };
 
     const handleFiles = function (e) {
-        setAvatar = e[0];
+        setAvatar(e[0]);
     }
 
     // triggers the input when the button is clicked
@@ -47,12 +47,11 @@ function DragnDrop(props) {
     };
 
     return (
-
         <div className="register-input-block-item-drag">
             <div className="heading">Avatar (only one)</div>
 
             <form id="form-file-upload" onDragEnter={handleDrag} onSubmit={(e) => e.preventDefault()}>
-                <input type="file" id="input-file-upload" multiple={false} onChange={handleChange} />
+                <input ref={inputRef} type="file" id="input-file-upload" multiple={false} onChange={handleChange} />
                 <label id="label-file-upload" htmlFor="input-file-upload" className={dragActive ? "drag-active" : ""}>
                     <div>
                         <img src="./src/assets/drag.svg" alt="" />

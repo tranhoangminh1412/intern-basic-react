@@ -1,8 +1,17 @@
 import { useState } from "react";
 import RegisterProgress from "./RegisterProgress";
+import Users from "../../Users";
 
 function RegisterBlockFinished(props) {
   const {
+    username,
+    password,
+    avatar,
+    fullname,
+    birthday,
+    city,
+    position,
+    description,
     setRegister,
     reason,
     setReason,
@@ -29,8 +38,22 @@ function RegisterBlockFinished(props) {
         ...abc,
         active: true,
         status: true,
-        popUpMessage: 'Register Successful!',
-      }))
+        popUpMessage: "Register Successful!",
+      }));
+      const newObject = {
+        id: Users.length + 1,
+        username: username,
+        password: password,
+        fullname: fullname,
+        birthday: birthday,
+        city: city,
+        position: position,
+        description: description,
+        avatar: avatar,
+        status: "pending",
+      };
+      console.log(newObject)
+      Users.push(newObject)
     }
   }
 

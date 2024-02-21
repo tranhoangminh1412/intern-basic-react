@@ -77,6 +77,14 @@ function RegisterBlock(props) {
       )}
       {activePage == 3 ? (
         <RegisterBlockFinished
+          avatar={avatar}
+          username={username}
+          password={password}
+          fullname={fullname}
+          birthday={birthday}
+          city={city}
+          position={position}
+          description={description}
           setRegister={setRegister}
           reason={reason}
           setReason={setReason}

@@ -105,8 +105,6 @@ function RegisterBlockProfile(props) {
     });
   }
 
-  function handleNextClick() {}
-
   return (
     <div className="content-wrapper">
       <div className="login-register-block"></div>
@@ -160,6 +158,7 @@ function RegisterBlockProfile(props) {
             <div
               style={{ position: "relative" }}
               className="register-input-block-item-inputframe"
+              
             >
               {city}
               <img
@@ -168,7 +167,7 @@ function RegisterBlockProfile(props) {
                 src="./src/assets/CaretDown.svg"
                 alt="show Cities Dropdown"
                 className="city-caretdown"
-              ></img>
+              />
               <CitiesDropdown setCity={setCity} setShowCities={setShowCities} showCities={showCities}  />
             </div>
           </div>
