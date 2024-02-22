@@ -27,10 +27,13 @@ function RegisterBlockProfile(props) {
     activePage,
     setLogin,
     setPage,
+    viewUser,
+    setViewUser,
+    setActivePage,
   } = props;
   const [nameFlag, setNameFlag] = useState(true);
   const [showPositions, setShowPositions] = useState(false);
-  const [showCities,setShowCities] = useState(false)
+  const [showCities, setShowCities] = useState(false);
   const [positionFlag, setPositionFlag] = useState(false);
   const [positionPlaceholder, setPositionPlaceholder] = useState(position);
   const [positionSearchValue, setPositionSearchValue] = useState("");
@@ -81,11 +84,10 @@ function RegisterBlockProfile(props) {
   }
 
   function toggleShowCities() {
-    if(showCities == true){
-        setShowCities(false)
-    }
-    else{
-        setShowCities(true)
+    if (showCities == true) {
+      setShowCities(false);
+    } else {
+      setShowCities(true);
     }
   }
 
@@ -103,6 +105,108 @@ function RegisterBlockProfile(props) {
         console.log("Found position");
       }
     });
+  }
+
+  if (Object.keys(viewUser).length !== 0) {
+    return (
+      <div
+        className="content-wrapper"
+        style={{
+          position: "unset",
+          padding: "unset",
+          justifyContent: "unset",
+          justifyItems: "unset",
+        }}
+      >
+        <div
+          className="register-block"
+          style={{
+            position: "unset",
+            width: "-webkit-fill-available",
+            height: "auto",
+          }}
+        >
+          <RegisterProgress activePage={activePage} />
+          <div className="register-input-block">
+            <div className="register-input-block-item">
+              <div className="register-input-block-item-textbox">
+                <div className="heading">Fullname</div>
+              </div>
+              <div className="register-input-block-item-inputframe">
+                {viewUser.fullname}
+              </div>
+            </div>
+
+            <div className="register-input-block-item">
+              <div className="register-input-block-item-textbox">
+                <div className="heading">Birthday</div>
+              </div>
+              <div
+                style={{ width: "max-content" }}
+                className="register-input-block-item-inputframe"
+              >
+                <div style={{ width: "70px", border: "none" }}>
+                  {viewUser.birthday}
+                </div>
+              </div>
+            </div>
+
+            <div className="register-input-block-item">
+              <div className="register-input-block-item-textbox">
+                <div className="heading">City</div>
+              </div>
+
+              <div
+                style={{ position: "relative" }}
+                className="register-input-block-item-inputframe"
+              >
+                {viewUser.city}
+              </div>
+            </div>
+
+            <div className="register-input-block-item">
+              <div className="register-input-block-item-textbox">
+                <div className="heading">Position</div>
+              </div>
+
+              <div className="register-input-block-item-inputframe">
+                {viewUser.position}
+              </div>
+            </div>
+
+            <div className="register-input-block-item">
+              <div className="register-input-block-item-textbox">
+                <div className="heading">Describe yourself</div>
+              </div>
+              <div className="register-input-block-item-inputframe">
+                {viewUser.description}
+              </div>
+            </div>
+          </div>
+
+          <div className="register-action">
+            <button
+              onClick={() => {
+                setActivePage(3);
+              }}
+              style={{ background: "#627D98", color: "var(--White, #FFF)" }}
+              className="register-action-button"
+            >
+              Next
+            </button>
+            <button
+              onClick={() => {
+                setActivePage(1);
+              }}
+              style={{ background: "#FFF", border: "1px solid #DCDCDC" }}
+              className="register-action-button"
+            >
+              Back
+            </button>
+          </div>
+        </div>
+      </div>
+    );
   }
 
   return (
@@ -158,7 +262,6 @@ function RegisterBlockProfile(props) {
             <div
               style={{ position: "relative" }}
               className="register-input-block-item-inputframe"
-              
             >
               {city}
               <img
@@ -168,7 +271,11 @@ function RegisterBlockProfile(props) {
                 alt="show Cities Dropdown"
                 className="city-caretdown"
               />
-              <CitiesDropdown setCity={setCity} setShowCities={setShowCities} showCities={showCities}  />
+              <CitiesDropdown
+                setCity={setCity}
+                setShowCities={setShowCities}
+                showCities={showCities}
+              />
             </div>
           </div>
 

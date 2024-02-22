@@ -12,6 +12,8 @@ function RegisterBlockAccount(props) {
     activePage,
     setLogin,
     setPage,
+    viewUser,
+    setActivePage,
   } = props;
   const [usrFlag, setUsrFlag] = useState(false);
   const [passwordFlag, setPasswordFlag] = useState(false);
@@ -28,7 +30,7 @@ function RegisterBlockAccount(props) {
         event.target.style.borderColor = "#DCDCDC";
       }
     });
-    console.log(event.target.value)
+    console.log(event.target.value);
     setUsername(event.target.value);
   };
 
@@ -61,6 +63,60 @@ function RegisterBlockAccount(props) {
       return false;
     }
   };
+
+  if (Object.keys(viewUser).length !== 0) {
+    return (
+      <div
+        className="content-wrapper"
+        style={{
+          position: "unset",
+          padding: "unset",
+          justifyContent: "unset",
+          justifyItems: "unset",
+        }}
+      >
+        <div
+          className="register-block"
+          style={{
+            position: "unset",
+            width: "-webkit-fill-available",
+            height: "auto",
+          }}
+        >
+          <RegisterProgress activePage={activePage} />
+          <div className="register-input-block">
+            <div className="register-input-block-item">
+              <div className="register-input-block-item-textbox">
+                <div className="heading">Username</div>
+              </div>
+              <div className="register-input-block-item-inputframe">
+                {viewUser.username}
+              </div>
+            </div>
+            <div className="register-input-block-item">
+              <div className="register-input-block-item-textbox">
+                <div className="heading">Password</div>
+              </div>
+              <div className="register-input-block-item-inputframe">
+                {viewUser.password}
+              </div>
+            </div>
+          </div>
+          <div className="register-action">
+            <button
+              onClick={() => {
+                setActivePage(2);
+              }}
+              style={{ background: "#627D98", color: "var(--White, #FFF)" }}
+              className="register-action-button"
+            >
+              Next
+            </button>
+          </div>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="content-wrapper">

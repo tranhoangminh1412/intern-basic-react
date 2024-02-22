@@ -1,7 +1,7 @@
 import RequestList from "./RequestList";
 
 function AdminContent(props) {
-  const { setLoading, setPopUp } = props;
+  const { setLoading, setPopUp, viewUser, setViewUser } = props;
 
   return (
     <div className="admin-pagebackground">
@@ -26,9 +26,11 @@ function AdminContent(props) {
                 <p className="admin-requestlist-header-text">Status</p>
               </div>
             </div>
-            <RequestList />
+            <RequestList viewUser={viewUser} setViewUser={setViewUser} setLoading={setLoading} />
           </div>
-          <div style={{alignContent:"end",gap:"56px",alignItems:"center"}}>
+          <div
+            style={{ alignContent: "end", gap: "56px", alignItems: "center" }}
+          >
             <p></p>
           </div>
         </div>

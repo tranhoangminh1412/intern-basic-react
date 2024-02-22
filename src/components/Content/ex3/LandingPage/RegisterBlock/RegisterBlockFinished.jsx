@@ -1,6 +1,7 @@
 import { useState } from "react";
 import RegisterProgress from "./RegisterProgress";
 import Users from "../../Users";
+import moment from "moment";
 
 function RegisterBlockFinished(props) {
   const {
@@ -23,11 +24,15 @@ function RegisterBlockFinished(props) {
     setRegisterSuccess,
     setLoading,
     setPopUp,
+    viewUser,
+    setViewUser,
+    setActivePage,
   } = props;
 
   const [salaryFlag, setSalaryFlag] = useState(false);
 
   function handleFinishRegister() {
+    const formattedDate = moment(new Date()).format('DD/MM/YYYY HH:mm:ss');
     if (reason && salary) {
       console.log("going");
       setLogin(true);
@@ -51,9 +56,10 @@ function RegisterBlockFinished(props) {
         description: description,
         avatar: avatar,
         status: "pending",
+        creationtime: formattedDate,
       };
-      console.log(newObject)
-      Users.push(newObject)
+      console.log(newObject);
+      Users.push(newObject);
     }
   }
 
@@ -65,6 +71,65 @@ function RegisterBlockFinished(props) {
     } else {
       setSalaryFlag(true);
     }
+  }
+
+  if (Object.keys(viewUser).length !== 0) {
+    return (
+      <div
+        className="content-wrapper"
+        style={{
+          position: "unset",
+          padding: "unset",
+          justifyContent: "unset",
+          justifyItems: "unset",
+        }}
+      >
+        <div
+          className="register-block"
+          style={{
+            position: "unset",
+            width: "-webkit-fill-available",
+            height: "auto",
+          }}
+        >
+          <RegisterProgress activePage={activePage} />
+          <div className="register-input-block">
+            <div className="register-input-block-item">
+              <div className="register-input-block-item-textbox">
+                <div className="heading">Reason</div>
+              </div>
+              <div className="register-input-block-item-inputframe">
+                {viewUser.reason}
+              </div>
+            </div>
+            <div className="register-input-block-item">
+              <div className="register-input-block-item-textbox">
+                <div className="heading">Wish salary</div>
+              </div>
+
+              <div
+                style={{ width: "max-content" }}
+                className="register-input-block-item-inputframe"
+              >
+                {viewUser.salary}
+                <p className="wish-salary-text"> VNĐ</p>
+              </div>
+            </div>
+          </div>
+          <div className="register-action">
+            <button
+              onClick={() => {
+                setActivePage(2);
+              }}
+              style={{ background: "#FFF", border: "1px solid #DCDCDC" }}
+              className="register-action-button"
+            >
+              Back
+            </button>
+          </div>
+        </div>
+      </div>
+    );
   }
 
   return (

@@ -20,7 +20,7 @@ function LandingPage(props) {
   const [avatar, setAvatar] = useState("");
   const [reason, setReason] = useState("");
   const [salary, setSalary] = useState("");
-  const { loading, setLoading, setPopUp, setActivePage,setActiveUser } = props;
+  const { loading, setLoading, setPopUp, setActivePage, setActiveUser, viewUser, setViewUser } = props;
   //   const [fields, setFields] = useState({ username: "hi", password: "hello" });
 
   //     const handleABC = () => {
@@ -77,6 +77,8 @@ function LandingPage(props) {
           setLoading={setLoading}
           setPopUp={setPopUp}
           setActiveUser={setActiveUser}
+          viewUser={viewUser}
+          setViewUser={setViewUser}
         />
       ) : (
         <></>

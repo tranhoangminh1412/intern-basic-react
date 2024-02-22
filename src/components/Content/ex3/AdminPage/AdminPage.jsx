@@ -1,18 +1,25 @@
+import { useState } from "react";
 import AdminContent from "./AdminContent";
 import AdminSidebar from "./AdminSidebar";
+import ViewUser from "./ViewUser";
 
 function AdminPage(props) {
-  const { setActivePage, setLoading, setPopUp, activeUser } = props;
+  const { setActivePage, setLoading, setPopUp, activeUser, viewUser, setViewUser } = props;
+
+  console.log("adminpage viewUser: " + viewUser)
+  console.log("Object.keys(viewUser).length: "+ Object.keys(viewUser).length)
 
   return (
-    <div style={{ display: "flex" }}>
+    <div style={{ display: "flex", height:'100vh' }}>
       <AdminSidebar
         setActivePage={setActivePage}
         setLoading={setLoading}
         setPopUp={setPopUp}
         activeUser={activeUser}
+        setViewUser={setViewUser}
       />
-      <AdminContent />
+      {Object.keys(viewUser).length == 0 ? <AdminContent viewUser={viewUser} setViewUser={setViewUser} setLoading={setLoading} /> : <></>}
+      {Object.keys(viewUser).length !== 0 ? <ViewUser viewUser={viewUser} setViewUser={setViewUser} setLoading={setLoading} setPopUp={setPopUp} /> : <></>}
     </div>
   );
 }

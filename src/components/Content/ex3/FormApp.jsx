@@ -12,8 +12,9 @@ function FormApp() {
     status: true,
     popUpMessage: "",
   });
-  const [activePage, setActivePage] = useState(1);
-  const [activeUser, setActiveUser] = useState(Users[0]);
+  const [activePage, setActivePage] = useState(0);
+  const [activeUser, setActiveUser] = useState({});
+  const [viewUser, setViewUser] = useState({});
 
   return (
     <>
@@ -25,6 +26,8 @@ function FormApp() {
           setPopUp={setPopUp}
           setActiveUser={setActiveUser}
           setActivePage={setActivePage}
+          viewUser={viewUser}
+          setViewUser={setViewUser}
         />
       ) : (
         <></>
@@ -36,6 +39,8 @@ function FormApp() {
           setPopUp={setPopUp}
           setActivePage={setActivePage}
           activeUser={activeUser}
+          viewUser={viewUser}
+          setViewUser={setViewUser}
         />
       ) : (
         <></>

@@ -779,6 +779,7 @@ input[type="landing"].login-block-inputfield::placeholder {
   width: auto;
   height: -webkit-fill-available;
   gap: 16px;
+  position: relative;
 }
 
 .admin-requestlist-container {
@@ -927,4 +928,30 @@ input[type="landing"].login-block-inputfield::placeholder {
   margin-top: 258px;
   z-index: 2;
   border: solid 1px #999;
+}
+
+.viewuser-info {
+  width: -webkit-fill-available;
+  height: 82px;
+  padding: 16px;
+  gap: 16px;
+  background-color: #f7f7f7;
+}
+
+.viewuser-name {
+  font-family: Noto Sans;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 30px;
+  letter-spacing: 0em;
+  text-align: left;
+}
+
+.viewuser-position {
+  font-family: Noto Sans;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 20px;
+  letter-spacing: 0px;
+  text-align: left;
 }

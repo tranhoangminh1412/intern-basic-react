@@ -3,9 +3,9 @@ import Users from "../Users";
 import moment from "moment";
 
 function RequestList(props) {
-  let userList = [...Users];
+  const { viewUser, setViewUser,setLoading } = props;
 
-  userList.splice(0, 1);
+  const userList = Users.filter((user) => user.usertype !== "admin");
 
   function getColor(status) {
     if (status == "approved") {
@@ -27,8 +27,19 @@ function RequestList(props) {
     }
   }
 
+  function getUser(e) {
+    setLoading(true)
+    setViewUser(Users[e - 1]);
+  }
+
   return userList.map((item) => (
-    <div key={item.id} className="admin-requestlist-wrapper">
+    <div
+      key={item.id}
+      id={item.id}
+      onClick={() => getUser(item.id)}
+      className="admin-requestlist-wrapper"
+      style={{ cursor: "pointer" }}
+    >
       <div className="admin-requestlist-header-standin" />
       <div style={{ alignSelf: "center" }}>
         <div className="requestlist-maintext">{item.fullname}</div>
@@ -36,7 +47,7 @@ function RequestList(props) {
       </div>
       <div className="requestlist-maintext">{item.city}</div>
       <div className="requestlist-maintext">{item.salary}</div>
-      <div className="requestlist-maintext">{item.birthday}</div>
+      <div className="requestlist-maintext">{item.creationtime}</div>
       <div style={{ display: "flex", justifyContent: "center" }}>
         <div
           style={{ background: getColor(item.status) }}
