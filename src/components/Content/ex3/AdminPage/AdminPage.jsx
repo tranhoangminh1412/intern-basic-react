@@ -6,9 +6,6 @@ import ViewUser from "./ViewUser";
 function AdminPage(props) {
   const { setActivePage, setLoading, setPopUp, activeUser, viewUser, setViewUser } = props;
 
-  console.log("adminpage viewUser: " + viewUser)
-  console.log("Object.keys(viewUser).length: "+ Object.keys(viewUser).length)
-
   return (
     <div style={{ display: "flex", height:'100vh' }}>
       <AdminSidebar

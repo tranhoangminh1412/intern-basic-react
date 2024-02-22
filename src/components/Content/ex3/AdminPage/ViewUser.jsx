@@ -9,7 +9,6 @@ function ViewUser(props) {
 
   const [activePage, setActivePage] = useState(1);
 
-  console.log("ViewUser viewUser: " + viewUser);
 
   function approveUser(){
     Users[viewUser.id-1].usertype = 'user'

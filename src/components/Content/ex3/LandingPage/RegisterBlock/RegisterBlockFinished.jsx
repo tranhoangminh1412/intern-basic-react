@@ -34,7 +34,6 @@ function RegisterBlockFinished(props) {
   function handleFinishRegister() {
     const formattedDate = moment(new Date()).format('DD/MM/YYYY HH:mm:ss');
     if (reason && salary) {
-      console.log("going");
       setLogin(true);
       setRegister(false);
       setRegisterSuccess(true);
@@ -58,7 +57,6 @@ function RegisterBlockFinished(props) {
         status: "pending",
         creationtime: formattedDate,
       };
-      console.log(newObject);
       Users.push(newObject);
     }
   }

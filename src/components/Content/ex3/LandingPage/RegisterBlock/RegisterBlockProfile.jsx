@@ -41,7 +41,6 @@ function RegisterBlockProfile(props) {
 
   const setButton = useMemo(() => {
     if (fullname == "" || birthday == "") {
-      console.log(fullname + " " + birthday);
       return true;
     } else {
       return false;
@@ -73,7 +72,6 @@ function RegisterBlockProfile(props) {
 
   function toggleDisplay() {
     let datepicker = document.querySelector(".datepicker");
-    console.log(datepicker.style.display);
     if (datepicker.style.display == "unset") {
       datepicker.style.display = "none";
     }
@@ -98,11 +96,8 @@ function RegisterBlockProfile(props) {
   function validatePosition() {
     Positions.forEach((p) => {
       if (positionSelectValue == p) {
-        console.log("p: " + p);
-        console.log("value in input: " + positionSelectValue);
         setPosition(positionSelectValue);
         setPositionFlag(true);
-        console.log("Found position");
       }
     });
   }
@@ -338,7 +333,6 @@ function RegisterBlockProfile(props) {
             disabled={setButton}
             onClick={() => {
               setPage(3);
-              console.log(fullname + " " + birthday);
             }}
             style={{ background: "#627D98", color: "var(--White, #FFF)" }}
             className="register-action-button"

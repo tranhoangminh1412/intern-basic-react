@@ -22,7 +22,6 @@ function RegisterBlockAccount(props) {
   const handleChange = (event) => {
     Users.forEach((user) => {
       if (event.target.value == user.username) {
-        console.log("first if");
         event.target.style.borderColor = "red";
         setUsrFlag(true);
       } else if (usrFlag) {
@@ -30,16 +29,13 @@ function RegisterBlockAccount(props) {
         event.target.style.borderColor = "#DCDCDC";
       }
     });
-    console.log(event.target.value);
     setUsername(event.target.value);
   };
 
   function handleNextClick() {
     if (!username || !password || passwordFlag) {
-      console.log("Invalid Fields");
       setUsrFlag(false);
     } else {
-      console.log("SUCCSSS");
       setRepeat("");
       setPasswordFlag(false);
       setPage(2);
@@ -48,7 +44,6 @@ function RegisterBlockAccount(props) {
 
   const inputPassword = (event) => {
     setPassword(event.target.value);
-    console.log(password);
   };
 
   const comparePassword = (event) => {

@@ -9,7 +9,6 @@ function App() {
   const [activeId, setActiveId] = useState(1);
 
   const currentUrl = window.location.href;
-  console.log(currentUrl);
   const match = currentUrl.match(/\/contents\/(\d+)/);
 //   const number = match[1];
 

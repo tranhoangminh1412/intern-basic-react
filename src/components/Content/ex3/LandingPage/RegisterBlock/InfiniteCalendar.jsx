@@ -7,7 +7,6 @@ export default function ReactInfiniteCalendar(props) {
 
     function hide(dateElement) {
         setBirthday(dateElement)
-        console.log(dateElement)
         document.querySelector(".datepicker").style.display = 'none'
     }
 

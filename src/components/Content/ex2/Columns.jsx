@@ -49,7 +49,6 @@ function Columns(props) {
 
     function addNewTodo() {
         let myInput = document.getElementById("cc-1-input")
-        console.log(document.querySelector(".add-new-todo"));
         document.querySelector(".add-new-todo").style.display = "none"
         myInput.value = ''
         setAddNew(true);

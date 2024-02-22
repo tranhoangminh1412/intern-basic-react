@@ -5,7 +5,6 @@ function Popup(props) {
 
   useEffect(() => {
     if (popUp.active) {
-        console.log('popup is active')
       setTimeout(
         () =>
           setPopUp((abc) => ({

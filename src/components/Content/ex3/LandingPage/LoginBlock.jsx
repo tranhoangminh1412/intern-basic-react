@@ -17,14 +17,11 @@ function LoginBlock(props) {
     const username = document.getElementById("login-username").value;
     const password = document.getElementById("login-password").value;
 
-    console.log("username: " + username);
-    console.log("password: " + password);
 
     Users.forEach((user) => {
       if (username == user.username) {
         if (password == user.password) {
           setActiveUser(user);
-          console.log("Login successful");
           setLoading(true);
           setPopUp((abc) => ({
             ...abc,
@@ -39,13 +36,21 @@ function LoginBlock(props) {
               setLoginSuccess(true);
             }
           });
-          console.log(loginSuccess);
         } else {
-          console.log("Wrong password");
+          setPopUp((abc) => ({
+            ...abc,
+            active: true,
+            status: false,
+            popUpMessage: "Login Unsuccessful!",
+          }));
         }
       } else {
-        console.log("No user found with this username");
-      }
+        setPopUp((abc) => ({
+          ...abc,
+          active: true,
+          status: false,
+          popUpMessage: "No user found with this username",
+        }));      }
     });
   }
 

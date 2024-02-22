@@ -1,5 +1,5 @@
 import { useState } from "react";
-
+import defaultava from "../../../../assets/defaultava.png"
 function AdminSidebar(props) {
   const { setActivePage, activeUser, setViewUser, setLoading, setPopUp } =
     props;
@@ -23,7 +23,7 @@ function AdminSidebar(props) {
       <div className="sidebar-info-block">
         <img
           className="sidebar-info-avatar"
-          src="./intern-basic-react/src/assets/defaultava.png"
+          src={defaultava}
           alt=""
         />
         <p className="sidebar-info-fullname">{activeUser.fullname}</p>
